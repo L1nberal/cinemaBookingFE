@@ -5,8 +5,6 @@ import { publicRoutes } from './routes/publicRoutes';
 
 const router = publicRoutes;
 
-console.log(publicRoutes);
-
 function App() {
   return (
     <Suspense fallback='...loading'>

@@ -2,7 +2,12 @@ import { createBrowserRouter, Outlet, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 import { DefaultLayout } from '../layouts';
 
-const Home = lazy(() => import('../pages/home/home'));
+const Home = lazy(() =>
+  import('../pages').then((module) => ({ default: module.Home }))
+);
+const Login = lazy(() =>
+  import('../pages').then((module) => ({ default: module.Login }))
+);
 
 export const publicRoutes = createBrowserRouter([
   {
@@ -22,5 +27,9 @@ export const publicRoutes = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: '/login',
+    element: <Login />,
   },
 ]);

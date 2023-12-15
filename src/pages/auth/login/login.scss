@@ -1,0 +1,32 @@
+.login-wrapper {
+  .rotate-parent {
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      height: 0%;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .rotate-y {
+      transition: 300ms;
+      position: relative;
+      z-index: 10;
+    }
+
+    &:hover {
+      &::before {
+        height: 100%;
+      }
+
+      .rotate-y {
+        transform: rotateY(360deg) !important;
+      }
+    }
+  }
+}
