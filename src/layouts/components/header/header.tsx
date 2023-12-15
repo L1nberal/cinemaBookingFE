@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import clsx from 'clsx';
+import { useLocation } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoIosCloseCircle } from 'react-icons/io';
 import {
@@ -10,6 +11,7 @@ import {
   FaSun,
 } from 'react-icons/fa';
 import { IoIosArrowDown } from 'react-icons/io';
+import { useTranslation } from 'react-i18next';
 
 import { Button } from '../../../components';
 import logo from '../../../assets/cinema-logo.png';
@@ -20,20 +22,61 @@ export const Header = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [isDark] = useState(false);
 
+  const { t } = useTranslation();
+
   const toggleDrawerVisibility = () => {
     setDrawerVisible(!drawerVisible);
   };
 
+  const location = useLocation();
+
+  const pathname = () => {
+    const str = location.pathname.slice(1);
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
+  console.log('Current route:', pathname() === 'Home');
+
   return (
-    <div className='header-wrapper h-14 bg-[#0e1428] flex justify-between px-3 items-center'>
+    <div className='header-wrapper h-14 bg-[#0e1428] flex justify-between px-3 items-center px-10'>
       <img className='w-16' src={logo} />
 
       <ul className='flex h-full max-[764px]:hidden'>
-        <li className='nav-item'>Home</li>
-        <li className='nav-item'>Cinemas</li>
-        <li className='nav-item'>News</li>
-        <li className='nav-item'>Contact</li>
-        <li className='nav-item'>About Us</li>
+        <li
+          className={clsx('nav-item', {
+            '!text-[#7f00ce]': pathname() === 'Home',
+          })}
+        >
+          {t('home')}
+        </li>
+        <li
+          className={clsx('nav-item', {
+            '!text-[#7f00ce]': pathname() === 'Cinemas',
+          })}
+        >
+          {t('cinemas')}
+        </li>
+        <li
+          className={clsx('nav-item', {
+            '!text-[#7f00ce]': pathname() === 'News',
+          })}
+        >
+          {t('news')}
+        </li>
+        <li
+          className={clsx('nav-item', {
+            '!text-[#7f00ce]': pathname() === 'Contact',
+          })}
+        >
+          {t('contact')}
+        </li>
+        <li
+          className={clsx('nav-item', {
+            '!text-[#7f00ce]': pathname() === 'About',
+          })}
+        >
+          {t('about')}
+        </li>
       </ul>
 
       <div className='flex items-center'>

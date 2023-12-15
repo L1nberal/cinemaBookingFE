@@ -13,8 +13,11 @@ import cinemaProductImage from '../../../assets/Cinema-Product-Photo.webp';
 import { urls } from '../../../routes/urls';
 
 import './login.scss';
+import { useTranslation } from 'react-i18next';
 
 export const Login = () => {
+  const { t } = useTranslation();
+
   const handleLogin = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -38,7 +41,7 @@ export const Login = () => {
         to={urls.home}
       >
         <IoIosReturnLeft className='text-lg' />
-        Back
+        {t('back')}
       </Button>
 
       <div
@@ -58,12 +61,18 @@ export const Login = () => {
             className={clsx('w-[364px]', ' max-[450px]:w-full')}
           >
             <h1 className='text-2xl font-bold uppercase text-center mb-[10px]'>
-              LOGIN
+              {t('login')}
             </h1>
-            <h2 className='text-base font-normal text-[#525252] text-center mb-6'>
-              Have you had an account yet?
-              <Button size='small' variant='link' color='info' to={urls.signup}>
-                No
+            <h2 className='text-base font-normal text-[#525252] text-center mb-6 capitalize'>
+              {t('accountExisting')}
+              <Button
+                className='capitalize'
+                size='small'
+                variant='link'
+                color='info'
+                to={urls.signup}
+              >
+                {t('no')}
               </Button>
             </h2>
 
@@ -72,7 +81,7 @@ export const Login = () => {
               name='identifier'
               type='text'
               icon={<FaRegUser />}
-              placeholder='username or email'
+              placeholder={`${t('username')} ${t('or')} email`}
             />
 
             <Input
@@ -80,20 +89,21 @@ export const Login = () => {
               name='password'
               type='password'
               icon={<RiLockPasswordLine />}
-              placeholder='password'
+              placeholder={t('password')}
             />
 
             <Button
-              className='block mx-auto mb-[18px]'
+              className='block mx-auto mb-[18px] capitalize'
               color='info'
               type='submit'
             >
-              Login Now
+              {t('loginNow')}
             </Button>
 
             <Divider>
-              <div className='text-base text-center'>
-                <span className='font-bold'>Login</span> with Others
+              <div className='text-base text-center capitalize'>
+                <span className='font-bold '>{t('login')}</span>{' '}
+                {t('withOthers')}
               </div>
             </Divider>
 
