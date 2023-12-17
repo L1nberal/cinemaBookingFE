@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+import clsx from 'clsx';
+
 import { Header } from '../components';
 
 type TDefaultLayout = {
@@ -10,7 +12,7 @@ export const DefaultLayout = ({ children }: TDefaultLayout) => {
     <div>
       <Header />
 
-      <div>{children}</div>
+      <div className={clsx('px-10', 'max-[480px]:px-3')}>{children}</div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import { createBrowserRouter, Outlet, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
+
 import { DefaultLayout } from '../layouts';
 
 const Home = lazy(() =>

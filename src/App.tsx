@@ -8,7 +8,7 @@ const router = publicRoutes;
 
 function App() {
   return (
-    <Suspense fallback='...loading'>
+    <Suspense fallback={<h1 className='text-white'>...loading</h1>}>
       <RouterProvider router={router} />
     </Suspense>
   );

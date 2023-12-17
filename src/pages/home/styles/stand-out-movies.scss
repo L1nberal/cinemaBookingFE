@@ -1,0 +1,29 @@
+.stand-out-movies-wrapper {
+  .current-movie-slide {
+    display: block;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -48%);
+    z-index: 2;
+  }
+
+  .next-movie-slide {
+    display: block;
+    width: 450px;
+    height: 250px;
+    top: 41%;
+    left: 50%;
+    transform: translate(0%, -60%) rotateY(-50deg) rotateZ(-1deg);
+    z-index: 1;
+  }
+
+  .previous-movie-slide {
+    display: block;
+    width: 450px;
+    height: 250px;
+    top: 41%;
+    left: 50%;
+    transform: translate(-100%, -60%) rotateY(50deg) rotateZ(1deg);
+    z-index: 1;
+  }
+}

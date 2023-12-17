@@ -1,6 +1,9 @@
-import React from 'react';
+import { StandOutMovies } from './components';
 
 export const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div className='mt-5'>
+      <StandOutMovies />
+    </div>
+  );
 };
-

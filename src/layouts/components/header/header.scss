@@ -44,6 +44,7 @@
     height: 100vh;
     background-color: #060b1c;
     transition: linear 300ms;
+    z-index: 9999;
 
     .nav-list {
       display: flex;
