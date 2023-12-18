@@ -24,6 +24,8 @@ export const languageResources = {
       or: 'or',
       getTickets: 'get tickets',
       seeDetails: 'see details',
+      english: 'english',
+      vietnamese: 'vietnam',
     },
   },
   vi: {
@@ -51,6 +53,8 @@ export const languageResources = {
       or: 'hoặc',
       getTickets: 'đặt vé',
       seeDetails: 'chi tiết',
+      english: 'tiếng anh',
+      vietnamese: 'tiếng việt',
     },
   },
 };

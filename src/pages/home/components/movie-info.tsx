@@ -55,11 +55,12 @@ export const MovieInfo = ({ currentSlide, setCurrentSlide }: TMovieInfo) => {
             )}
           >
             <h4 className='whitespace-nowrap overflow-hidden text-ellipsis'>
-              {item?.genres.map((genre) => (
+              {item?.genres.map((genre, index) => (
                 <span
                   className={clsx(
                     'genre text-[#6b03b0] capitalize text-[15px] font-semibold'
                   )}
+                  key={index}
                 >
                   {genre}
                 </span>
