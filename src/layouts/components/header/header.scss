@@ -6,9 +6,9 @@
     padding: 0px 15px;
     text-align: center;
     cursor: pointer;
-    color: #505563;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 17px;
+    color: white;
 
     &:hover {
       color: #7f00ce;
@@ -34,4 +34,35 @@
       }
     }
   }
+
+  .drawer {
+    position: fixed;
+    right: -300px;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #060b1c;
+    transition: linear 300ms;
+
+    .nav-list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-item {
+      &:hover {
+        &:before {
+          background-image: linear-gradient(to left, transparent, #7c01c82d);
+        }
+
+        &:after {
+          height: 100%;
+          width: 3px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 764px) {
 }
