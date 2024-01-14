@@ -2,6 +2,7 @@ import { RouterProvider } from 'react-router-dom';
 import { Suspense } from 'react';
 
 import { publicRoutes } from './routes/publicRoutes';
+import './languages/i18n';
 
 const router = publicRoutes;
 
