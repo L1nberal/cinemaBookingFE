@@ -1,0 +1,32 @@
+.movie-info-wrapper {
+  .genre {
+    &::after {
+      content: ', ';
+    }
+
+    &:last-child {
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .current-movie-info {
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+  }
+
+  .next-movie-info {
+    display: block;
+    left: 430px;
+    opacity: 0;
+  }
+
+  .previous-movie-info {
+    display: block;
+    left: -370px;
+    opacity: 0;
+  }
+}

@@ -22,6 +22,10 @@ export const languageResources = {
       loginNow: 'login now',
       withOthers: 'with others',
       or: 'or',
+      getTickets: 'get tickets',
+      seeDetails: 'see details',
+      english: 'english',
+      vietnamese: 'vietnam',
     },
   },
   vi: {
@@ -47,6 +51,10 @@ export const languageResources = {
       loginNow: 'đăng nhập ngay',
       withOthers: 'với',
       or: 'hoặc',
+      getTickets: 'đặt vé',
+      seeDetails: 'chi tiết',
+      english: 'tiếng anh',
+      vietnamese: 'tiếng việt',
     },
   },
 };

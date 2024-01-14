@@ -2,14 +2,7 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import { useLocation } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
-import { IoIosCloseCircle } from 'react-icons/io';
-import {
-  FaUserCircle,
-  FaUser,
-  FaLanguage,
-  FaCloudMoon,
-  FaSun,
-} from 'react-icons/fa';
+import { FaUser, FaLanguage, FaCloudMoon, FaSun } from 'react-icons/fa';
 import { IoIosArrowDown } from 'react-icons/io';
 import { useTranslation } from 'react-i18next';
 
@@ -17,16 +10,14 @@ import { Button } from '../../../components';
 import logo from '../../../assets/cinema-logo.png';
 import { urls } from '../../../routes/urls';
 import './header.scss';
+import { Drawer } from './drawer';
+import { LanguageMenu } from './language-menu';
 
 export const Header = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const [isDark] = useState(false);
 
   const { t } = useTranslation();
-
-  const toggleDrawerVisibility = () => {
-    setDrawerVisible(!drawerVisible);
-  };
 
   const location = useLocation();
 
@@ -35,7 +26,9 @@ export const Header = () => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
-  console.log('Current route:', pathname() === 'Home');
+  const toggleDrawerVisibility = () => {
+    setDrawerVisible(!drawerVisible);
+  };
 
   return (
     <div className='header-wrapper h-14 bg-[#0e1428] flex justify-between px-3 items-center px-10'>
@@ -83,12 +76,17 @@ export const Header = () => {
         <Button size='small' color='white'>
           {!isDark ? <FaCloudMoon /> : <FaSun />}
         </Button>
-        <Button className='flex items-center' color='white' variant='link'>
-          <span className='text-2xl'>
-            <FaLanguage />
-          </span>
-          <IoIosArrowDown />
-        </Button>
+
+        <div className='multi-language-container relative'>
+          <Button className=' flex items-center' color='white' variant='link'>
+            <span className='text-2xl'>
+              <FaLanguage />
+            </span>
+            <IoIosArrowDown />
+          </Button>
+
+          <LanguageMenu />
+        </div>
 
         <Button
           className='max-[764px]:hidden !ml-0'
@@ -107,9 +105,9 @@ export const Header = () => {
         <GiHamburgerMenu />
       </Button>
 
-      <span
+      <div
         className={clsx(
-          'absolute top-0 left-0 w-full h-full bg-black opacity-40 cursor-pointer',
+          'absolute top-0 left-0 w-full h-full bg-black opacity-40 cursor-pointer z-[9999]',
           {
             hidden: !drawerVisible,
           }
@@ -117,43 +115,10 @@ export const Header = () => {
         onClick={toggleDrawerVisibility}
       />
 
-      <div
-        className={clsx('drawer min-[765px]:hidden', {
-          '!right-0': drawerVisible,
-        })}
-      >
-        <Button
-          className='text-xl'
-          variant='link'
-          color='white'
-          callbackFC={toggleDrawerVisibility}
-        >
-          <IoIosCloseCircle />
-        </Button>
-
-        <div className='flex flex-col items-center gap-3 my-5'>
-          <div className='text-5xl text-white'>
-            <FaUserCircle />
-          </div>
-
-          <div>
-            <Button color='info' variant='link'>
-              Login
-            </Button>
-            <Button color='success' variant='link'>
-              Signup
-            </Button>
-          </div>
-        </div>
-
-        <ul className='nav-list flex flex-col'>
-          <li className='nav-item'>Home</li>
-          <li className='nav-item'>Cinemas</li>
-          <li className='nav-item'>News</li>
-          <li className='nav-item'>Contact</li>
-          <li className='nav-item'>About Us</li>
-        </ul>
-      </div>
+      <Drawer
+        drawerVisible={drawerVisible}
+        toggleDrawerVisibility={toggleDrawerVisibility}
+      />
     </div>
   );
 };

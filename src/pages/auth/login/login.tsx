@@ -3,17 +3,15 @@ import { FaRegUser } from 'react-icons/fa';
 import { RiLockPasswordLine } from 'react-icons/ri';
 import { FaFacebookF } from 'react-icons/fa6';
 import { IoIosReturnLeft } from 'react-icons/io';
-
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 
 import { Button, Divider, Input } from '../../../components';
 import gmailIcon from '../../../assets/Gmail_icon.svg.webp';
 import cinemaCityImage from '../../../assets/Cinema_City.svg.png';
 import cinemaProductImage from '../../../assets/Cinema-Product-Photo.webp';
 import { urls } from '../../../routes/urls';
-
 import './login.scss';
-import { useTranslation } from 'react-i18next';
 
 export const Login = () => {
   const { t } = useTranslation();
